@@ -8,8 +8,8 @@ from playwright.sync_api import sync_playwright
 # =========================
 # CONFIG (ENV VARS)
 # =========================
-TOKEN = os.getenv("8574398516:AAGEmd-XZh5uyoTLtStrjVDSswSC106Gksl")
-CHAT_ID = os.getenv("promosdodiaAmazon")
+TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
 
 if not TOKEN or not CHAT_ID:
     raise Exception("Defina TELEGRAM_TOKEN e CHAT_ID nas variáveis de ambiente")
