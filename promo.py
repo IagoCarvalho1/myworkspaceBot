@@ -4,8 +4,8 @@ import json
 from PIL import Image, ImageDraw
 from playwright.sync_api import sync_playwright
 
-TOKEN = "SEU_TOKEN"
-CHAT_ID = "@promosdodiaamazon"
+TOKEN = "8574398516:AAGEmd-XZh5uyoTLtStrjVDSswSC106Gksl"
+CHAT_ID = "@promosdodiaAmazon"
 
 enviados = set()
 
@@ -112,7 +112,7 @@ def buscar_ofertas():
                 nome = titulo.inner_text()
                 valor = preco.inner_text()
 
-                url_produto = "https://amazon.com.br" + link.get_attribute("href")
+                url_produto = "https://amazon.com.br" + link.get_attribute("href") + "&tag=promosama0678-20"
 
                 if url_produto in enviados:
                     continue
@@ -182,4 +182,4 @@ if __name__ == "__main__":
 
         buscar_ofertas()
 
-        time.sleep(600)
+        time.sleep(180)
