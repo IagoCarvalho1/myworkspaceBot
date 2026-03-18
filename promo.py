@@ -86,7 +86,7 @@ def buscar_ofertas():
 
         browser = p.chromium.launch(
         headless=True,
-        args=["--no-sandbox", "--disable-setuid-sandbox"]
+        args=["--no-sandbox", "--disable-dev-shm-usage"]
         )
         
         page = browser.new_page(
