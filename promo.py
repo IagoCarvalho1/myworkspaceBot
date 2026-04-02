@@ -9,7 +9,6 @@ AFFLILIATE_TAG = "promosama0678-20"
 
 
 def buscar_varios_produtos():
-    produtos_validos = []
     with sync_playwright() as p:
         browser = p.chromium.launch(
             headless=False,
@@ -37,6 +36,7 @@ def buscar_varios_produtos():
 
         produtos = page.locator('[data-component-type="s-search-result"]')
         qtd = produtos.count()
+        produtos_validos = []
         print("Quantidade de resultados encontrados:", qtd)
 
         if qtd == 0:
@@ -90,8 +90,8 @@ def buscar_varios_produtos():
                     "link": link
                 })
 
-            browser.close()
-            return produtos_validos
+        browser.close()
+        return produtos_validos
 
 def carregar_enviados():
     try:
