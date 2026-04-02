@@ -1,0 +1,237 @@
+# 🤖 Bot de Promoções Amazon → Telegram
+
+Este projeto é um bot automatizado que:
+
+* 🔎 Busca produtos na Amazon
+* 💰 Filtra por descontos reais
+* 🚫 Evita produtos repetidos
+* 📲 Envia promoções automaticamente para um canal do Telegram
+
+---
+
+# 🚀 Tecnologias utilizadas
+
+* Python 3
+* Playwright (automação de navegador)
+* Requests (integração com Telegram API)
+* JSON (armazenamento de histórico)
+
+---
+
+# 📁 Estrutura do projeto
+
+```
+BotAmazon/
+│
+├── promo.py
+├── enviados.json
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# ⚙️ Pré-requisitos
+
+Antes de começar, você precisa ter instalado:
+
+## 🖥️ Windows / Mac
+
+* Python 3.10+
+* Git
+
+---
+
+# 📦 Instalação (PASSO A PASSO)
+
+## 1. Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/bot-amazon.git
+cd bot-amazon
+```
+
+---
+
+## 2. Criar ambiente virtual
+
+### Windows:
+
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+### Mac/Linux:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+
+## 3. Instalar dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 4. Instalar Playwright
+
+```bash
+python -m playwright install
+```
+
+---
+
+# 🔐 Configuração do Bot Telegram
+
+## 1. Criar bot
+
+* Abra o Telegram
+* Procure por: **BotFather**
+* Digite:
+
+```
+/start
+/newbot
+```
+
+* Copie o TOKEN gerado
+
+---
+
+## 2. Criar canal
+
+* Crie um canal no Telegram
+* Ex: `@promosdodiaAmazon`
+
+---
+
+## 3. Adicionar bot como admin
+
+* Vá no canal
+* Adicione o bot
+* Dê permissão de administrador
+
+---
+
+## 4. Configurar no código
+
+No arquivo `promo.py`, altere:
+
+```python
+TOKEN = "SEU_TOKEN_AQUI"
+CHAT_ID = "@seu_canal"
+```
+
+---
+
+# 💰 Configuração de afiliado Amazon
+
+No código:
+
+```python
+AFFILIATE_TAG = "seu-id-aqui"
+```
+
+Exemplo:
+
+```python
+AFFILIATE_TAG = "promosama0678-20"
+```
+
+---
+
+# 📄 Arquivo enviados.json
+
+Crie o arquivo:
+
+```json
+[]
+```
+
+👉 Ele serve para evitar envio de produtos repetidos
+
+---
+
+# ▶️ Como rodar o bot
+
+```bash
+python promo.py
+```
+
+---
+
+# 🔁 Execução automática (opcional)
+
+Você pode rodar o bot em loop:
+
+```python
+import time
+
+while True:
+    main()
+    time.sleep(1800)  # 30 minutos
+```
+
+---
+
+# 🧠 Como funciona
+
+1. Abre a Amazon com Playwright
+2. Coleta produtos da página
+3. Extrai:
+
+   * nome
+   * preço atual
+   * preço antigo
+   * link
+4. Calcula desconto
+5. Filtra produtos com desconto mínimo
+6. Verifica se já foi enviado
+7. Envia para Telegram
+8. Salva no JSON
+
+---
+
+# ⚠️ Cuidados importantes
+
+* ❗ Nunca exponha seu TOKEN
+* ❗ Não abuse de scraping (pode ser bloqueado)
+* ❗ Use delays para evitar bloqueio
+
+---
+
+# 📈 Melhorias futuras
+
+* [ ] Enviar imagem do produto
+* [ ] Detectar variação de preço
+* [ ] Dashboard de métricas
+* [ ] Deploy em servidor (Render, Railway)
+* [ ] Integração com banco de dados
+
+---
+
+# 🧑‍💻 Autor
+
+Desenvolvido por **Iago Carvalho**
+
+---
+
+# ⭐ Contribuição
+
+Se quiser melhorar o projeto:
+
+* Faça um fork
+* Crie uma branch
+* Envie um pull request
+
+---
+
+# 📢 Licença
+
+Uso livre para fins de estudo e projetos pessoais.
